@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Eloquent\Dumpling\Mysql\Client\MysqlClientInterface | Dumpling API</title>
+                    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../../../classes.html">Classes</a></li>
+                            <li><a href="../../../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Dumpling API</div>
+
+            <div class="type">Interface</div>
+    <h1><a href="../../../../Eloquent/Dumpling/Mysql/Client.html">Eloquent\Dumpling\Mysql\Client</a>\MysqlClientInterface</h1>
+    </div>
+        <div class="content">
+                <p>interface    <strong>MysqlClientInterface</strong></p>
+
+            <div class="description">
+            <p>The interface implemented by MySQL clients.</p>
+            <p>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_username">username</a>()
+                    <p>Get the username.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|null
+                </td>
+                <td class="last">
+                    <a href="#method_password">password</a>()
+                    <p>Get the password.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_host">host</a>()
+                    <p>Get the hostname or IP address of the server.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_port">port</a>()
+                    <p>Get the port of the server.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Eloquent\Dumpling\Mysql\Client\array&lt;string&gt;">array&lt;string&gt;</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_listDatabases">listDatabases</a>()
+                    <p>Get the list of database names.</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_username">
+        <div class="location">at line 24</div>
+        <code>            public            string
+    <strong>username</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the username.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The username.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_password">
+        <div class="location">at line 31</div>
+        <code>            public            string|null
+    <strong>password</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the password.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td>The password, or null if no password was supplied.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_host">
+        <div class="location">at line 38</div>
+        <code>            public            string
+    <strong>host</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the hostname or IP address of the server.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The hostname or IP address.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_port">
+        <div class="location">at line 45</div>
+        <code>            public            integer
+    <strong>port</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the port of the server.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The port.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_listDatabases">
+        <div class="location">at line 52</div>
+        <code>            public            <abbr title="Eloquent\Dumpling\Mysql\Client\array&lt;string&gt;">array&lt;string&gt;</abbr>
+    <strong>listDatabases</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the list of database names.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Eloquent\Dumpling\Mysql\Client\array&lt;string&gt;">array&lt;string&gt;</abbr></td>
+            <td>The database names.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

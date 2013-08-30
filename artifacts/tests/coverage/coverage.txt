@@ -1,0 +1,38 @@
+
+
+Code Coverage Report 
+  2013-08-30 05:25:01
+
+ Summary: 
+  Classes: 100.00% (14/14)
+  Methods: 100.00% (45/45)
+  Lines:   100.00% (431/431)
+
+\Eloquent\Dumpling\Console::DumplingApplication
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  8/  8)
+\Eloquent\Dumpling\Console\Command::DumplingCommand
+  Methods: 100.00% ( 5/ 5)   Lines: 100.00% (111/111)
+\Eloquent\Dumpling\Console\Input::BoundArgvInput
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  8/  8)
+\Eloquent\Dumpling\Console\Input\Exception::UndefinedArgvException
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)
+\Eloquent\Dumpling\Mysql\Client::MysqlClient
+  Methods: 100.00% ( 9/ 9)   Lines: 100.00% ( 43/ 43)
+\Eloquent\Dumpling\Mysql\Client::MysqlClientFactory
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
+\Eloquent\Dumpling\Mysql\Connection::MysqlConnectionFactory
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  8/  8)
+\Eloquent\Dumpling\Mysql\Dumper::MysqlDumper
+  Methods: 100.00% (17/17)   Lines: 100.00% (234/234)
+\Eloquent\Dumpling\Mysql\Dumper::MysqlDumperFactory
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
+\Eloquent\Dumpling\Mysql\Dumper\Exception::DumpFailedException
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)
+\Eloquent\Dumpling\Mysql\Dumper\Exception::MysqldumpException
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)
+\Eloquent\Dumpling\Mysql\Dumper\Exception::NoDatabasesException
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)
+\Eloquent\Dumpling\Mysql\Dumper\Exception::UnqualifiedTableException
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% ( 10/ 10)
+\Eloquent\Dumpling\Process::ProcessFactory
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)

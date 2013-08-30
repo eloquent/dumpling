@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Eloquent\Dumpling\Mysql\Dumper\MysqlDumper | Dumpling API</title>
+                    <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../../../classes.html">Classes</a></li>
+                            <li><a href="../../../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Dumpling API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../../../Eloquent/Dumpling/Mysql/Dumper.html">Eloquent\Dumpling\Mysql\Dumper</a>\MysqlDumper</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>MysqlDumper</strong>        implements
+        <a href="../../../../Eloquent/Dumpling/Mysql/Dumper/MysqlDumperInterface.html"><abbr title="Eloquent\Dumpling\Mysql\Dumper\MysqlDumperInterface">MysqlDumperInterface</abbr></a></p>
+
+            <div class="description">
+            <p>Dumps the structure and contents of MySQL databases and tables.</p>
+            <p>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(<a href="../../../../Eloquent/Dumpling/Mysql/Client/MysqlClientInterface.html"><abbr title="Eloquent\Dumpling\Mysql\Client\MysqlClientInterface">MysqlClientInterface</abbr></a> $client, <abbr title="Symfony\Component\Process\ExecutableFinder">ExecutableFinder</abbr> $executableFinder = null, <a href="../../../../Eloquent/Dumpling/Process/ProcessFactoryInterface.html"><abbr title="Eloquent\Dumpling\Process\ProcessFactoryInterface">ProcessFactoryInterface</abbr></a> $processFactory = null)
+                    <p>Construct a new MySQL dumper.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../Eloquent/Dumpling/Mysql/Client/MysqlClientInterface.html"><abbr title="Eloquent\Dumpling\Mysql\Client\MysqlClientInterface">MysqlClientInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_client">client</a>()
+                    <p>Get the MySQL client.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Symfony\Component\Process\ExecutableFinder">ExecutableFinder</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_executableFinder">executableFinder</a>()
+                    <p>Get the executable finder.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../../../Eloquent/Dumpling/Process/ProcessFactoryInterface.html"><abbr title="Eloquent\Dumpling\Process\ProcessFactoryInterface">ProcessFactoryInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_processFactory">processFactory</a>()
+                    <p>Get the process factory.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_dump">dump</a>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\callable">callable</abbr> $callback, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)
+                    <p>Dump MySQL information to a callback.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_dumpToStream">dumpToStream</a>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\stream">stream</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)
+                    <p>Dump MySQL information to a stream.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_dumpToString">dumpToString</a>(boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)
+                    <p>Dump MySQL information to a string.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_dumpToConsole">dumpToConsole</a>(<abbr title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)
+                    <p>Dump MySQL information to the console.</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 34</div>
+        <code>            public            
+    <strong>__construct</strong>(<a href="../../../../Eloquent/Dumpling/Mysql/Client/MysqlClientInterface.html"><abbr title="Eloquent\Dumpling\Mysql\Client\MysqlClientInterface">MysqlClientInterface</abbr></a> $client, <abbr title="Symfony\Component\Process\ExecutableFinder">ExecutableFinder</abbr> $executableFinder = null, <a href="../../../../Eloquent/Dumpling/Process/ProcessFactoryInterface.html"><abbr title="Eloquent\Dumpling\Process\ProcessFactoryInterface">ProcessFactoryInterface</abbr></a> $processFactory = null)</code>
+    </h3>
+    <div class="details">
+        <p>Construct a new MySQL dumper.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../../Eloquent/Dumpling/Mysql/Client/MysqlClientInterface.html"><abbr title="Eloquent\Dumpling\Mysql\Client\MysqlClientInterface">MysqlClientInterface</abbr></a></td>
+                <td>$client</td>
+                <td>The MySQL client to use.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Symfony\Component\Process\ExecutableFinder">ExecutableFinder</abbr></td>
+                <td>$executableFinder</td>
+                <td>The executable finder to use.</td>
+            </tr>
+                    <tr>
+                <td><a href="../../../../Eloquent/Dumpling/Process/ProcessFactoryInterface.html"><abbr title="Eloquent\Dumpling\Process\ProcessFactoryInterface">ProcessFactoryInterface</abbr></a></td>
+                <td>$processFactory</td>
+                <td>The process factory to use.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_client">
+        <div class="location">at line 56</div>
+        <code>            public            <a href="../../../../Eloquent/Dumpling/Mysql/Client/MysqlClientInterface.html"><abbr title="Eloquent\Dumpling\Mysql\Client\MysqlClientInterface">MysqlClientInterface</abbr></a>
+    <strong>client</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the MySQL client.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../Eloquent/Dumpling/Mysql/Client/MysqlClientInterface.html"><abbr title="Eloquent\Dumpling\Mysql\Client\MysqlClientInterface">MysqlClientInterface</abbr></a></td>
+            <td>The MySQL client.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_executableFinder">
+        <div class="location">at line 66</div>
+        <code>            public            <abbr title="Symfony\Component\Process\ExecutableFinder">ExecutableFinder</abbr>
+    <strong>executableFinder</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the executable finder.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Symfony\Component\Process\ExecutableFinder">ExecutableFinder</abbr></td>
+            <td>The executable finder.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_processFactory">
+        <div class="location">at line 76</div>
+        <code>            public            <a href="../../../../Eloquent/Dumpling/Process/ProcessFactoryInterface.html"><abbr title="Eloquent\Dumpling\Process\ProcessFactoryInterface">ProcessFactoryInterface</abbr></a>
+    <strong>processFactory</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the process factory.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../../Eloquent/Dumpling/Process/ProcessFactoryInterface.html"><abbr title="Eloquent\Dumpling\Process\ProcessFactoryInterface">ProcessFactoryInterface</abbr></a></td>
+            <td>The process factory.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_dump">
+        <div class="location">at line 99</div>
+        <code>            public            
+    <strong>dump</strong>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\callable">callable</abbr> $callback, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)</code>
+    </h3>
+    <div class="details">
+        <p>Dump MySQL information to a callback.</p>
+        <p>The callback accepts two arguments. The first is the type of output,
+which will be either Process::OUT, or Process::ERR, for standard output
+and error output respectively. The second is the output itself.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Eloquent\Dumpling\Mysql\Dumper\callable">callable</abbr></td>
+                <td>$callback</td>
+                <td>The callback to pass output to.</td>
+            </tr>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$excludeData</td>
+                <td>True if data should be excluded.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$databases</td>
+                <td>The list of databases to dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$tables</td>
+                <td>The list of tables to dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$excludeDatabases</td>
+                <td>The list of databases to exclude from the dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$excludeTables</td>
+                <td>The list of tables to exclude from the dump.</td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Exception\NoDatabasesException">NoDatabasesException</abbr></td>
+                <td>If there are no databases to dump.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Exception\UnqualifiedTableException">UnqualifiedTableException</abbr></td>
+                <td>If an unqualified table name was supplied.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Exception\DumpFailedException">DumpFailedException</abbr></td>
+                <td>If the dump failed.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_dumpToStream">
+        <div class="location">at line 160</div>
+        <code>            public            
+    <strong>dumpToStream</strong>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\stream">stream</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)</code>
+    </h3>
+    <div class="details">
+        <p>Dump MySQL information to a stream.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Eloquent\Dumpling\Mysql\Dumper\stream">stream</abbr></td>
+                <td>$output</td>
+                <td>The output stream to write to.</td>
+            </tr>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$excludeData</td>
+                <td>True if data should be excluded.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$databases</td>
+                <td>The list of databases to dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$tables</td>
+                <td>The list of tables to dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$excludeDatabases</td>
+                <td>The list of databases to exclude from the dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$excludeTables</td>
+                <td>The list of tables to exclude from the dump.</td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Exception\NoDatabasesException">NoDatabasesException</abbr></td>
+                <td>If there are no databases to dump.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Exception\UnqualifiedTableException">UnqualifiedTableException</abbr></td>
+                <td>If an unqualified table name was supplied.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Exception\DumpFailedException">DumpFailedException</abbr></td>
+                <td>If the dump failed.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_dumpToString">
+        <div class="location">at line 199</div>
+        <code>            public            string
+    <strong>dumpToString</strong>(boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)</code>
+    </h3>
+    <div class="details">
+        <p>Dump MySQL information to a string.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$excludeData</td>
+                <td>True if data should be excluded.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$databases</td>
+                <td>The list of databases to dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$tables</td>
+                <td>The list of tables to dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$excludeDatabases</td>
+                <td>The list of databases to exclude from the dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$excludeTables</td>
+                <td>The list of tables to exclude from the dump.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The MySQL information.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Exception\NoDatabasesException">NoDatabasesException</abbr></td>
+                <td>If there are no databases to dump.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Exception\UnqualifiedTableException">UnqualifiedTableException</abbr></td>
+                <td>If an unqualified table name was supplied.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Exception\DumpFailedException">DumpFailedException</abbr></td>
+                <td>If the dump failed.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_dumpToConsole">
+        <div class="location">at line 237</div>
+        <code>            public            
+    <strong>dumpToConsole</strong>(<abbr title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)</code>
+    </h3>
+    <div class="details">
+        <p>Dump MySQL information to the console.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</abbr></td>
+                <td>$output</td>
+                <td>The console output to use.</td>
+            </tr>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$excludeData</td>
+                <td>True if data should be excluded.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$databases</td>
+                <td>The list of databases to dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$tables</td>
+                <td>The list of tables to dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$excludeDatabases</td>
+                <td>The list of databases to exclude from the dump.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$excludeTables</td>
+                <td>The list of tables to exclude from the dump.</td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Exception\NoDatabasesException">NoDatabasesException</abbr></td>
+                <td>If there are no databases to dump.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Exception\UnqualifiedTableException">UnqualifiedTableException</abbr></td>
+                <td>If an unqualified table name was supplied.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Exception\DumpFailedException">DumpFailedException</abbr></td>
+                <td>If the dump failed.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
