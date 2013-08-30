@@ -24,7 +24,8 @@ interface MysqlConnectionFactoryInterface
      * @param string|null  $host     The hostname or IP address of the server.
      * @param integer|null $port     The port of the server.
      *
-     * @return mysqli The new MySQL connection.
+     * @return mysqli                              The new MySQL connection.
+     * @throws Exception\ConnectionFailedException If the connection fails.
      */
     public function create(
         $username = null,

@@ -11,6 +11,7 @@
 
 namespace Eloquent\Dumpling\Mysql\Connection;
 
+use ErrorException;
 use Icecave\Isolator\Isolator;
 
 /**
@@ -36,7 +37,8 @@ class MysqlConnectionFactory implements MysqlConnectionFactoryInterface
      * @param string|null  $host     The hostname or IP address of the server.
      * @param integer|null $port     The port of the server.
      *
-     * @return mysqli The new MySQL connection.
+     * @return mysqli                              The new MySQL connection.
+     * @throws Exception\ConnectionFailedException If the connection fails.
      */
     public function create(
         $username = null,
@@ -44,13 +46,35 @@ class MysqlConnectionFactory implements MysqlConnectionFactoryInterface
         $host = null,
         $port = null
     ) {
-        return $this->isolator->mysqli_connect(
-            $host,
-            $username,
-            $password,
-            null,
-            $port
-        );
+        if (null === $username) {
+            $username = 'root';
+        }
+        if (null === $host) {
+            $host = 'localhost';
+        }
+        if (null === $port) {
+            $port = 3306;
+        }
+
+        try {
+            $connection = $this->isolator->mysqli_connect(
+                $host,
+                $username,
+                $password,
+                null,
+                $port
+            );
+        } catch (ErrorException $e) {
+            throw new Exception\ConnectionFailedException(
+                $username,
+                $password,
+                $host,
+                $port,
+                $e
+            );
+        }
+
+        return $connection;
     }
 
     private $isolator;
