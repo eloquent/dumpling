@@ -18,14 +18,18 @@
 provides a streamlined interface. *Dumpling* is designed to be as intuitive and
 simple to use as possible.
 
+*Dumpling* still uses mysqldump internally, so it's 100% compatible. It also
+produces output which is much more diff-friendly than standard mysqldump.
+
 ## What's wrong with mysqldump?
 
 - Outputs internal databases like `mysql` and `information_schema` which are
-  useless (and potentially dangerous) in 99% of cases.
-- Extreme line length on INSERT statements causes havok for many text editors.
-- Diffing of INSERT statements is useless, because of line length, and
+  useless in 99% of cases (and potentially dangerous when importing).
+- Extreme line length on extended INSERT statements causes havok for many text
+  editors.
+- Diffing of extended INSERT statements is useless, because of line length, and
   unpredictable row order.
-- Leaves out important routine information by default.
+- Leaves out important procedure and function information by default.
 - Command line interface is cluttered and inflexible; inclusion/exclusion of
   databases and tables is inconsistent and limited.
 - Raw binary data ruins portability & human readability.
@@ -54,124 +58,31 @@ simple to use as possible.
      --help (-h)             Display this help message.
      --version (-V)          Display this application version.
 
-
 ## Usage examples
 
 ### Dumping localhost as root with no password
 
     dumpling
 
-Equivalent mysqldump command:
-
-    mysqldump \
-        --host localhost \
-        --port 3306 \
-        --username root \
-        --routines \
-        --skip-extended-insert \
-        --order-by-primary \
-        --hex-blob \
-        --protocol TCP \
-        --databases <a manually-typed list of all non-internal databases> ...
-
 ### Excluding databases
 
     dumpling --exclude-database database_a
-
-Equivalent mysqldump command:
-
-    mysqldump \
-        --host localhost \
-        --port 3306 \
-        --username root \
-        --routines \
-        --skip-extended-insert \
-        --order-by-primary \
-        --hex-blob \
-        --protocol TCP \
-        --databases <a manually-typed list of the desired databases> ...
 
 ### Excluding data
 
     dumpling --no-data
 
-Equivalent mysqldump command:
-
-    mysqldump \
-        --host localhost \
-        --port 3306 \
-        --username root \
-        --no-data \
-        --routines \
-        --skip-extended-insert \
-        --order-by-primary \
-        --hex-blob \
-        --protocol TCP \
-        --databases <a manually-typed list of all non-internal databases> ...
-
 ### Dumping one specific database
 
     dumpling database_name
-
-Equivalent mysqldump command:
-
-    mysqldump \
-        --host localhost \
-        --port 3306 \
-        --username root \
-        --routines \
-        --skip-extended-insert \
-        --order-by-primary \
-        --hex-blob \
-        --protocol TCP \
-        --databases database_name
 
 ### Dumping one specific table
 
     dumpling database_name table_name
 
-Equivalent mysqldump command:
-
-    mysqldump \
-    --host localhost \
-    --port 3306 \
-    --username root \
-    --routines \
-    --skip-extended-insert \
-    --order-by-primary \
-    --hex-blob \
-    --protocol TCP \
-    --databases database_name \
-    --tables table_name
-
 ### Dumping two specific tables from different databases
 
     dumpling --table database_a.table --table database_b.table
-
-Equivalent mysqldump commands:
-
-    mysqldump \
-    --host localhost \
-    --port 3306 \
-    --username root \
-    --routines \
-    --skip-extended-insert \
-    --order-by-primary \
-    --hex-blob \
-    --protocol TCP \
-    --databases database_a \
-    --table table
-    mysqldump \
-    --host localhost \
-    --port 3306 \
-    --username root \
-    --routines \
-    --skip-extended-insert \
-    --order-by-primary \
-    --hex-blob \
-    --protocol TCP \
-    --databases database_b \
-    --table table
 
 ## Requirements
 
