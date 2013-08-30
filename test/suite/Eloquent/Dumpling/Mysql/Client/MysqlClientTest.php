@@ -83,7 +83,7 @@ class MysqlClientTest extends PHPUnit_Framework_TestCase
             ->query('SELECT SCHEMA_NAME FROM information_schema.SCHEMATA');
         $fetchVerification = Phake::verify($this->result, Phake::atLeast(1))->fetch_array(MYSQLI_NUM);
         Phake::inOrder(
-            Phake::verify($this->connectionFactory)->create('host', 'username', 'password', 111),
+            Phake::verify($this->connectionFactory)->create('username', 'password', 'host', 111),
             $queryVerification,
             $fetchVerification,
             $fetchVerification,

@@ -144,9 +144,9 @@ class MysqlClient implements MysqlClientInterface
     {
         if (null === $this->connection) {
             $this->connection = $this->connectionFactory()->create(
-                $this->host(),
                 $this->username(),
                 $this->password(),
+                $this->host(),
                 $this->port()
             );
         }
