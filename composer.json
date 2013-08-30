@@ -1,0 +1,35 @@
+{
+    "name": "eloquent/dumpling",
+    "description": "Diff-friendly mysqldump with an improved interface.",
+    "keywords": ["mysql", "mysqldump", "dump", "improved", "cli", "command"],
+    "homepage": "https://github.com/eloquent/dumpling",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Erin Millard",
+            "email": "ezzatron@gmail.com",
+            "homepage": "http://ezzatron.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "ext-mysqli": "*",
+        "eloquent/asplode": "~1",
+        "eloquent/enumeration": "~4",
+        "eloquent/liberator": "~1",
+        "icecave/isolator": "~2",
+        "symfony/console": "~2",
+        "symfony/process": "~2"
+    },
+    "require-dev": {
+        "icecave/archer": "1.0.0-alpha.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "Eloquent\\Dumpling": "src"
+        }
+    },
+    "bin": [
+        "bin/dumpling"
+    ]
+}
