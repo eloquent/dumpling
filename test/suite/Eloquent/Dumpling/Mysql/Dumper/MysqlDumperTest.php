@@ -79,7 +79,7 @@ class MysqlDumperTest extends PHPUnit_Framework_TestCase
     {
         return array(
             'All defaults' => array(
-                null, null, null, null, null,
+                null, null, null, null, null, null, null,
                 array(
                     array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--databases', 'databasea', 'databaseb', 'databasec'),
                 ),
@@ -88,18 +88,18 @@ class MysqlDumperTest extends PHPUnit_Framework_TestCase
                 ),
             ),
 
-            'No data' => array(
-                true, null, null, null, null,
+            'Flags' => array(
+                true, null, null, null, null, false, true,
                 array(
-                    array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--no-data', '--databases', 'databasea', 'databaseb', 'databasec'),
+                    array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--no-data', '--skip-lock-tables', '--single-transaction', '--databases', 'databasea', 'databaseb', 'databasec'),
                 ),
                 array(
-                    "'/path/to/mysqldump' '--routines' '--skip-extended-insert' '--order-by-primary' '--hex-blob' '--protocol' 'TCP' '--no-data' '--databases' 'databasea' 'databaseb' 'databasec'"
+                    "'/path/to/mysqldump' '--routines' '--skip-extended-insert' '--order-by-primary' '--hex-blob' '--protocol' 'TCP' '--no-data' '--skip-lock-tables' '--single-transaction' '--databases' 'databasea' 'databaseb' 'databasec'"
                 ),
             ),
 
             'Specific databases' => array(
-                null, array('databaseD', 'databaseE'), null, null, null,
+                null, array('databaseD', 'databaseE'), null, null, null, null, null,
                 array(
                     array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--databases', 'databased', 'databasee'),
                 ),
@@ -109,7 +109,7 @@ class MysqlDumperTest extends PHPUnit_Framework_TestCase
             ),
 
             'Specific databases normally excluded' => array(
-                null, array('mysql', 'information_schema', 'performance_schema'), null, null, null,
+                null, array('mysql', 'information_schema', 'performance_schema'), null, null, null, null, null,
                 array(
                     array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--databases', 'mysql', 'information_schema', 'performance_schema'),
                 ),
@@ -119,7 +119,7 @@ class MysqlDumperTest extends PHPUnit_Framework_TestCase
             ),
 
             'Specific tables' => array(
-                null, null, array('database.tableA', 'database.tableB'), null, null,
+                null, null, array('database.tableA', 'database.tableB'), null, null, null, null,
                 array(
                     array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--databases', 'database', '--tables', 'tablea', 'tableb'),
                 ),
@@ -129,7 +129,7 @@ class MysqlDumperTest extends PHPUnit_Framework_TestCase
             ),
 
             'Specific tables unqualified' => array(
-                null, array('database'), array('tableA', 'tableB'), null, null,
+                null, array('database'), array('tableA', 'tableB'), null, null, null, null,
                 array(
                     array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--databases', 'database', '--tables', 'tablea', 'tableb'),
                 ),
@@ -139,7 +139,7 @@ class MysqlDumperTest extends PHPUnit_Framework_TestCase
             ),
 
             'Specific tables across databases' => array(
-                null, null, array('databaseA.tableA', 'databaseB.tableB'), null, null,
+                null, null, array('databaseA.tableA', 'databaseB.tableB'), null, null, null, null,
                 array(
                     array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--databases', 'databasea', '--tables', 'tablea'),
                     array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--databases', 'databaseb', '--tables', 'tableb'),
@@ -151,7 +151,7 @@ class MysqlDumperTest extends PHPUnit_Framework_TestCase
             ),
 
             'Exclude databases' => array(
-                null, null, null, array('databasea', 'databasec'), null,
+                null, null, null, array('databasea', 'databasec'), null, null, null,
                 array(
                     array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--databases', 'databaseb'),
                 ),
@@ -161,7 +161,7 @@ class MysqlDumperTest extends PHPUnit_Framework_TestCase
             ),
 
             'Exclude tables' => array(
-                null, null, null, null, array('databasea.tablea', 'databaseb.tableb'),
+                null, null, null, null, array('databasea.tablea', 'databaseb.tableb'), null, null,
                 array(
                     array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--databases', 'databasea', 'databaseb', 'databasec', '--ignore-table', 'databasea.tablea', '--ignore-table', 'databaseb.tableb'),
                 ),
@@ -171,18 +171,18 @@ class MysqlDumperTest extends PHPUnit_Framework_TestCase
             ),
 
             'All options' => array(
-                true, array('databaseD', 'databaseE'), array('databaseA.tableA', 'databaseB.tableB'), array('databased', 'databasee'), array('databasea.tablec', 'databaseb.tabled', 'databasef.tablef', 'databaseg.tableg'),
+                true, array('databaseD', 'databaseE'), array('databaseA.tableA', 'databaseB.tableB'), array('databased', 'databasee'), array('databasea.tablec', 'databaseb.tabled', 'databasef.tablef', 'databaseg.tableg'), false, true,
                 array(
-                    array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--no-data', '--databases', 'databased'),
-                    array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--no-data', '--databases', 'databasee'),
-                    array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--no-data', '--databases', 'databasea', '--tables', 'tablea', '--ignore-table', 'databasea.tablec'),
-                    array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--no-data', '--databases', 'databaseb', '--tables', 'tableb', '--ignore-table', 'databaseb.tabled'),
+                    array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--no-data',  '--skip-lock-tables', '--single-transaction', '--databases', 'databased'),
+                    array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--no-data',  '--skip-lock-tables', '--single-transaction', '--databases', 'databasee'),
+                    array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--no-data',  '--skip-lock-tables', '--single-transaction', '--databases', 'databasea', '--tables', 'tablea', '--ignore-table', 'databasea.tablec'),
+                    array('/path/to/mysqldump', '--routines', '--skip-extended-insert', '--order-by-primary', '--hex-blob', '--host', 'host', '--port', '111', '--user', 'username', '--protocol', 'TCP', '--password=password', '--no-data',  '--skip-lock-tables', '--single-transaction', '--databases', 'databaseb', '--tables', 'tableb', '--ignore-table', 'databaseb.tabled'),
                 ),
                 array(
-                    "'/path/to/mysqldump' '--routines' '--skip-extended-insert' '--order-by-primary' '--hex-blob' '--protocol' 'TCP' '--no-data' '--databases' 'databased'",
-                    "'/path/to/mysqldump' '--routines' '--skip-extended-insert' '--order-by-primary' '--hex-blob' '--protocol' 'TCP' '--no-data' '--databases' 'databasee'",
-                    "'/path/to/mysqldump' '--routines' '--skip-extended-insert' '--order-by-primary' '--hex-blob' '--protocol' 'TCP' '--no-data' '--databases' 'databasea' '--tables' 'tablea' '--ignore-table' 'databasea.tablec'",
-                    "'/path/to/mysqldump' '--routines' '--skip-extended-insert' '--order-by-primary' '--hex-blob' '--protocol' 'TCP' '--no-data' '--databases' 'databaseb' '--tables' 'tableb' '--ignore-table' 'databaseb.tabled'",
+                    "'/path/to/mysqldump' '--routines' '--skip-extended-insert' '--order-by-primary' '--hex-blob' '--protocol' 'TCP' '--no-data' '--skip-lock-tables' '--single-transaction' '--databases' 'databased'",
+                    "'/path/to/mysqldump' '--routines' '--skip-extended-insert' '--order-by-primary' '--hex-blob' '--protocol' 'TCP' '--no-data' '--skip-lock-tables' '--single-transaction' '--databases' 'databasee'",
+                    "'/path/to/mysqldump' '--routines' '--skip-extended-insert' '--order-by-primary' '--hex-blob' '--protocol' 'TCP' '--no-data' '--skip-lock-tables' '--single-transaction' '--databases' 'databasea' '--tables' 'tablea' '--ignore-table' 'databasea.tablec'",
+                    "'/path/to/mysqldump' '--routines' '--skip-extended-insert' '--order-by-primary' '--hex-blob' '--protocol' 'TCP' '--no-data' '--skip-lock-tables' '--single-transaction' '--databases' 'databaseb' '--tables' 'tableb' '--ignore-table' 'databaseb.tabled'",
                 ),
             ),
         );
@@ -197,6 +197,8 @@ class MysqlDumperTest extends PHPUnit_Framework_TestCase
         $tables,
         $excludeDatabases,
         $excludeTables,
+        $useLocks,
+        $useTransactions,
         $commandArgumentSets,
         $displayCommands
     ) {
@@ -209,7 +211,16 @@ class MysqlDumperTest extends PHPUnit_Framework_TestCase
                 $output .= $buffer;
             }
         };
-        $this->dumper->dump($callback, $excludeData, $databases, $tables, $excludeDatabases, $excludeTables);
+        $this->dumper->dump(
+            $callback,
+            $excludeData,
+            $databases,
+            $tables,
+            $excludeDatabases,
+            $excludeTables,
+            $useLocks,
+            $useTransactions
+        );
         $expectedOutput = array(
             '-- Dumpling ' . DumplingApplication::VERSION,
             '',

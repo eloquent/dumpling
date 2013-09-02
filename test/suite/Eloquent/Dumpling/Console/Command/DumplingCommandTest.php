@@ -49,7 +49,7 @@ class DumplingCommandTest extends PHPUnit_Framework_TestCase
             new InputArgument(
                 'table',
                 InputArgument::OPTIONAL | InputArgument::IS_ARRAY,
-                'The table(s) to dump. Expects database.table format.'
+                'The table(s) to dump.'
             )
         );
 
@@ -91,6 +91,22 @@ class DumplingCommandTest extends PHPUnit_Framework_TestCase
                 'd',
                 InputOption::VALUE_NONE,
                 'Do not dump table data.'
+            )
+        );
+        $expectedDefinition->addOption(
+            new InputOption(
+                'skip-locks',
+                'L',
+                InputOption::VALUE_NONE,
+                'Do not lock tables.'
+            )
+        );
+        $expectedDefinition->addOption(
+            new InputOption(
+                'transaction',
+                't',
+                InputOption::VALUE_NONE,
+                'Dump data in a transactional manner. Only works for InnoDB tables.'
             )
         );
         $expectedDefinition->addOption(
@@ -159,11 +175,13 @@ class DumplingCommandTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 null,
+                false,
                 null,
                 null,
                 null,
                 null,
-                null,
+                true,
+                false,
             ),
 
             'Shorthand args' => array(
@@ -172,11 +190,13 @@ class DumplingCommandTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 null,
-                null,
+                false,
                 array('database'),
                 array('tableA', 'tableB'),
                 null,
                 null,
+                true,
+                false,
             ),
 
             'Connection details' => array(
@@ -185,11 +205,13 @@ class DumplingCommandTest extends PHPUnit_Framework_TestCase
                 'password',
                 'host',
                 111,
+                false,
                 null,
                 null,
                 null,
                 null,
-                null,
+                true,
+                false,
             ),
 
             'Include/exclude' => array(
@@ -198,11 +220,13 @@ class DumplingCommandTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 null,
-                null,
+                false,
                 array('databaseA', 'databaseB'),
                 array('databaseA.tableA', 'databaseB.tableB'),
                 array('databaseC', 'databaseD'),
                 array('databaseC.tableC', 'databaseD.tableD'),
+                true,
+                false,
             ),
 
             'Mixed shorthand and options' => array(
@@ -211,11 +235,28 @@ class DumplingCommandTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 null,
-                null,
+                false,
                 array('databaseA', 'databaseB'),
                 array('databaseA.tableA', 'databaseB.tableB'),
                 null,
                 null,
+                true,
+                false,
+            ),
+
+            'Flags' => array(
+                '--no-data --skip-locks --transaction',
+                null,
+                null,
+                null,
+                null,
+                true,
+                null,
+                null,
+                null,
+                null,
+                false,
+                true,
             ),
         );
     }
@@ -223,7 +264,7 @@ class DumplingCommandTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider executeData
      */
-    public function testExecute($input, $user, $password, $host, $port, $noData, $databases, $tables, $excludeDatabases, $excludeTables)
+    public function testExecute($input, $user, $password, $host, $port, $noData, $databases, $tables, $excludeDatabases, $excludeTables, $useLocks, $useTransactions)
     {
         $input = new StringInput($input);
         $output = new NullOutput;
@@ -236,7 +277,9 @@ class DumplingCommandTest extends PHPUnit_Framework_TestCase
             $databases,
             $tables,
             $excludeDatabases,
-            $excludeTables
+            $excludeTables,
+            $useLocks,
+            $useTransactions
         );
     }
 }
