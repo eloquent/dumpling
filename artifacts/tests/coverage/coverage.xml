@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1378094918">
-  <project timestamp="1378094918">
+<coverage generated="1378095513">
+  <project timestamp="1378095513">
     <package name="Eloquent\Dumpling\Console\Command">
       <file name="/home/travis/build/eloquent/dumpling/src/Eloquent/Dumpling/Console/Command/DumplingCommand.php">
         <class name="DumplingCommand" namespace="Eloquent\Dumpling\Console\Command">
