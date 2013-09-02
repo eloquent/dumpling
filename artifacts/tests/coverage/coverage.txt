@@ -1,17 +1,17 @@
 
 
 Code Coverage Report 
-  2013-08-30 06:46:49
+  2013-09-02 04:08:38
 
  Summary: 
   Classes: 100.00% (15/15)
   Methods: 100.00% (50/50)
-  Lines:   100.00% (461/461)
+  Lines:   100.00% (495/495)
 
 \Eloquent\Dumpling\Console::DumplingApplication
   Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  8/  8)
 \Eloquent\Dumpling\Console\Command::DumplingCommand
-  Methods: 100.00% ( 5/ 5)   Lines: 100.00% (111/111)
+  Methods: 100.00% ( 5/ 5)   Lines: 100.00% (124/124)
 \Eloquent\Dumpling\Console\Input::BoundArgvInput
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  8/  8)
 \Eloquent\Dumpling\Console\Input\Exception::UndefinedArgvException
@@ -25,7 +25,7 @@ Code Coverage Report
 \Eloquent\Dumpling\Mysql\Connection\Exception::ConnectionFailedException
   Methods: 100.00% ( 5/ 5)   Lines: 100.00% ( 13/ 13)
 \Eloquent\Dumpling\Mysql\Dumper::MysqlDumper
-  Methods: 100.00% (17/17)   Lines: 100.00% (234/234)
+  Methods: 100.00% (17/17)   Lines: 100.00% (255/255)
 \Eloquent\Dumpling\Mysql\Dumper::MysqlDumperFactory
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
 \Eloquent\Dumpling\Mysql\Dumper\Exception::DumpFailedException

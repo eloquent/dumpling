@@ -81,7 +81,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_dump">dump</a>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\callable">callable</abbr> $callback, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)
+                    <a href="#method_dump">dump</a>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\callable">callable</abbr> $callback, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null, boolean|null $useLocks = null, boolean|null $useTransactions = null)
                     <p>Dump MySQL information to a callback.</p>
                 </td>
                 <td></td>
@@ -91,7 +91,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_dumpToStream">dumpToStream</a>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\stream">stream</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)
+                    <a href="#method_dumpToStream">dumpToStream</a>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\stream">stream</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null, boolean|null $useLocks = null, boolean|null $useTransactions = null)
                     <p>Dump MySQL information to a stream.</p>
                 </td>
                 <td></td>
@@ -101,7 +101,7 @@
                     string
                 </td>
                 <td class="last">
-                    <a href="#method_dumpToString">dumpToString</a>(boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)
+                    <a href="#method_dumpToString">dumpToString</a>(boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null, boolean|null $useLocks = null, boolean|null $useTransactions = null)
                     <p>Dump MySQL information to a string.</p>
                 </td>
                 <td></td>
@@ -111,7 +111,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_dumpToConsole">dumpToConsole</a>(<abbr title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)
+                    <a href="#method_dumpToConsole">dumpToConsole</a>(<abbr title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null, boolean|null $useLocks = null, boolean|null $useTransactions = null)
                     <p>Dump MySQL information to the console.</p>
                 </td>
                 <td></td>
@@ -233,9 +233,9 @@
     </div>
 
                 <h3 id="method_dump">
-        <div class="location">at line 99</div>
+        <div class="location">at line 101</div>
         <code>            public            
-    <strong>dump</strong>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\callable">callable</abbr> $callback, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)</code>
+    <strong>dump</strong>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\callable">callable</abbr> $callback, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null, boolean|null $useLocks = null, boolean|null $useTransactions = null)</code>
     </h3>
     <div class="details">
         <p>Dump MySQL information to a callback.</p>
@@ -276,6 +276,16 @@ and error output respectively. The second is the output itself.</p>
                 <td>$excludeTables</td>
                 <td>The list of tables to exclude from the dump.</td>
             </tr>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$useLocks</td>
+                <td>True if tables should be locked before dumping.</td>
+            </tr>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$useTransactions</td>
+                <td>True if transactions should be used when dumping.</td>
+            </tr>
             </table>
 
             
@@ -302,9 +312,9 @@ and error output respectively. The second is the output itself.</p>
     </div>
 
                 <h3 id="method_dumpToStream">
-        <div class="location">at line 160</div>
+        <div class="location">at line 182</div>
         <code>            public            
-    <strong>dumpToStream</strong>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\stream">stream</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)</code>
+    <strong>dumpToStream</strong>(<abbr title="Eloquent\Dumpling\Mysql\Dumper\stream">stream</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null, boolean|null $useLocks = null, boolean|null $useTransactions = null)</code>
     </h3>
     <div class="details">
         <p>Dump MySQL information to a stream.</p>
@@ -344,6 +354,16 @@ and error output respectively. The second is the output itself.</p>
                 <td>$excludeTables</td>
                 <td>The list of tables to exclude from the dump.</td>
             </tr>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$useLocks</td>
+                <td>True if tables should be locked before dumping.</td>
+            </tr>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$useTransactions</td>
+                <td>True if transactions should be used when dumping.</td>
+            </tr>
             </table>
 
             
@@ -370,9 +390,9 @@ and error output respectively. The second is the output itself.</p>
     </div>
 
                 <h3 id="method_dumpToString">
-        <div class="location">at line 199</div>
+        <div class="location">at line 227</div>
         <code>            public            string
-    <strong>dumpToString</strong>(boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)</code>
+    <strong>dumpToString</strong>(boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null, boolean|null $useLocks = null, boolean|null $useTransactions = null)</code>
     </h3>
     <div class="details">
         <p>Dump MySQL information to a string.</p>
@@ -406,6 +426,16 @@ and error output respectively. The second is the output itself.</p>
                 <td>array</td>
                 <td>$excludeTables</td>
                 <td>The list of tables to exclude from the dump.</td>
+            </tr>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$useLocks</td>
+                <td>True if tables should be locked before dumping.</td>
+            </tr>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$useTransactions</td>
+                <td>True if transactions should be used when dumping.</td>
             </tr>
             </table>
 
@@ -442,9 +472,9 @@ and error output respectively. The second is the output itself.</p>
     </div>
 
                 <h3 id="method_dumpToConsole">
-        <div class="location">at line 237</div>
+        <div class="location">at line 271</div>
         <code>            public            
-    <strong>dumpToConsole</strong>(<abbr title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null)</code>
+    <strong>dumpToConsole</strong>(<abbr title="Symfony\Component\Console\Output\OutputInterface">OutputInterface</abbr> $output, boolean|null $excludeData = null, array $databases = null, array $tables = null, array $excludeDatabases = null, array $excludeTables = null, boolean|null $useLocks = null, boolean|null $useTransactions = null)</code>
     </h3>
     <div class="details">
         <p>Dump MySQL information to the console.</p>
@@ -483,6 +513,16 @@ and error output respectively. The second is the output itself.</p>
                 <td>array</td>
                 <td>$excludeTables</td>
                 <td>The list of tables to exclude from the dump.</td>
+            </tr>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$useLocks</td>
+                <td>True if tables should be locked before dumping.</td>
+            </tr>
+                    <tr>
+                <td>boolean|null</td>
+                <td>$useTransactions</td>
+                <td>True if transactions should be used when dumping.</td>
             </tr>
             </table>
 
