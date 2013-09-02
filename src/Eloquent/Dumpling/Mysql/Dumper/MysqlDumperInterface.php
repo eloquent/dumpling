@@ -31,6 +31,8 @@ interface MysqlDumperInterface
      * @param array<string>|null $tables           The list of tables to dump.
      * @param array<string>|null $excludeDatabases The list of databases to exclude from the dump.
      * @param array<string>|null $excludeTables    The list of tables to exclude from the dump.
+     * @param boolean|null       $useLocks         True if tables should be locked before dumping.
+     * @param boolean|null       $useTransactions  True if transactions should be used when dumping.
      *
      * @throws Exception\NoDatabasesException      If there are no databases to dump.
      * @throws Exception\UnqualifiedTableException If an unqualified table name was supplied.
@@ -42,7 +44,9 @@ interface MysqlDumperInterface
         array $databases = null,
         array $tables = null,
         array $excludeDatabases = null,
-        array $excludeTables = null
+        array $excludeTables = null,
+        $useLocks = null,
+        $useTransactions = null
     );
 
     /**
@@ -54,6 +58,8 @@ interface MysqlDumperInterface
      * @param array<string>|null $tables           The list of tables to dump.
      * @param array<string>|null $excludeDatabases The list of databases to exclude from the dump.
      * @param array<string>|null $excludeTables    The list of tables to exclude from the dump.
+     * @param boolean|null       $useLocks         True if tables should be locked before dumping.
+     * @param boolean|null       $useTransactions  True if transactions should be used when dumping.
      *
      * @throws Exception\NoDatabasesException      If there are no databases to dump.
      * @throws Exception\UnqualifiedTableException If an unqualified table name was supplied.
@@ -65,7 +71,9 @@ interface MysqlDumperInterface
         array $databases = null,
         array $tables = null,
         array $excludeDatabases = null,
-        array $excludeTables = null
+        array $excludeTables = null,
+        $useLocks = null,
+        $useTransactions = null
     );
 
     /**
@@ -76,6 +84,8 @@ interface MysqlDumperInterface
      * @param array<string>|null $tables           The list of tables to dump.
      * @param array<string>|null $excludeDatabases The list of databases to exclude from the dump.
      * @param array<string>|null $excludeTables    The list of tables to exclude from the dump.
+     * @param boolean|null       $useLocks         True if tables should be locked before dumping.
+     * @param boolean|null       $useTransactions  True if transactions should be used when dumping.
      *
      * @return string                              The MySQL information.
      * @throws Exception\NoDatabasesException      If there are no databases to dump.
@@ -87,7 +97,9 @@ interface MysqlDumperInterface
         array $databases = null,
         array $tables = null,
         array $excludeDatabases = null,
-        array $excludeTables = null
+        array $excludeTables = null,
+        $useLocks = null,
+        $useTransactions = null
     );
 
     /**
@@ -99,6 +111,8 @@ interface MysqlDumperInterface
      * @param array<string>|null $tables           The list of tables to dump.
      * @param array<string>|null $excludeDatabases The list of databases to exclude from the dump.
      * @param array<string>|null $excludeTables    The list of tables to exclude from the dump.
+     * @param boolean|null       $useLocks         True if tables should be locked before dumping.
+     * @param boolean|null       $useTransactions  True if transactions should be used when dumping.
      *
      * @throws Exception\NoDatabasesException      If there are no databases to dump.
      * @throws Exception\UnqualifiedTableException If an unqualified table name was supplied.
@@ -110,6 +124,8 @@ interface MysqlDumperInterface
         array $databases = null,
         array $tables = null,
         array $excludeDatabases = null,
-        array $excludeTables = null
+        array $excludeTables = null,
+        $useLocks = null,
+        $useTransactions = null
     );
 }

@@ -84,7 +84,7 @@ class DumplingCommand extends Command
         $this->addArgument(
             'table',
             InputArgument::OPTIONAL | InputArgument::IS_ARRAY,
-            'The table(s) to dump. Expects database.table format.'
+            'The table(s) to dump.'
         );
 
         $this->addOption(
@@ -116,6 +116,18 @@ class DumplingCommand extends Command
             'd',
             InputOption::VALUE_NONE,
             'Do not dump table data.'
+        );
+        $this->addOption(
+            'skip-locks',
+            'L',
+            InputOption::VALUE_NONE,
+            'Do not lock tables.'
+        );
+        $this->addOption(
+            'transaction',
+            't',
+            InputOption::VALUE_NONE,
+            'Dump data in a transactional manner. Only works for InnoDB tables.'
         );
         $this->addOption(
             'host',
@@ -198,7 +210,9 @@ class DumplingCommand extends Command
             $databases,
             $tables,
             $excludeDatabases,
-            $excludeTables
+            $excludeTables,
+            !$input->getOption('skip-locks'),
+            $input->getOption('transaction')
         );
     }
 
