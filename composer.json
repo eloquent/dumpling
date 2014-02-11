@@ -14,19 +14,19 @@
     "require": {
         "php": ">=5.3",
         "ext-mysqli": "*",
-        "eloquent/asplode": "~1",
-        "eloquent/enumeration": "~4",
-        "eloquent/liberator": "~1",
+        "eloquent/asplode": "~2",
+        "eloquent/enumeration": "~5",
+        "eloquent/liberator": "~2",
         "icecave/isolator": "~2",
         "symfony/console": "~2",
         "symfony/process": "~2"
     },
     "require-dev": {
-        "icecave/archer": "1.0.0-alpha.2"
+        "icecave/archer": "~1"
     },
     "autoload": {
-        "psr-0": {
-            "Eloquent\\Dumpling": "src"
+        "psr-4": {
+            "Eloquent\\Dumpling\\": "src"
         }
     },
     "bin": [
