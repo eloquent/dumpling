@@ -1,6 +1,6 @@
 # Dumpling changelog
 
-## 0.2.1 (unreleased)
+## 0.2.1 (2014-02-11)
 
 - **[MAINTENANCE]** General repo maintenance
 
