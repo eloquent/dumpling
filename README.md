@@ -2,7 +2,7 @@
 
 *Diff-friendly mysqldump with an improved interface.*
 
-[![The most recent stable version is 0.2.1][version-image]][Semantic versioning]
+[![The most recent stable version is 0.2.2][version-image]][Semantic versioning]
 [![Current build status image][build-image]][Current build status]
 [![Current coverage status image][coverage-image]][Current coverage status]
 
@@ -103,4 +103,4 @@ produces output which is much more diff-friendly than standard mysqldump.
 [Current coverage status]: https://coveralls.io/r/eloquent/dumpling
 [eloquent/dumpling]: https://packagist.org/packages/eloquent/dumpling
 [Semantic versioning]: http://semver.org/
-[version-image]: http://img.shields.io/:semver-0.2.1-yellow.svg "This project uses semantic versioning"
+[version-image]: http://img.shields.io/:semver-0.2.2-yellow.svg "This project uses semantic versioning"
