@@ -26,7 +26,7 @@ class DumplingApplicationTest extends PHPUnit_Framework_TestCase
     public function testConstructor()
     {
         $this->assertSame('Dumpling', $this->application->getName());
-        $this->assertSame('0.2.0', $this->application->getVersion());
+        $this->assertSame('0.2.2', $this->application->getVersion());
         $this->assertTrue($this->application->has('dumpling'));
     }
 
