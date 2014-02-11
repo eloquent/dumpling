@@ -13,7 +13,7 @@ if (preg_match('{^(.*)/vendor/.+/.+$}', $packageRoot, $matches)) {
     require $packageRoot . '/vendor/autoload.php';
 }
 
-Asplode::instance()->install();
+Asplode::install();
 
 set_time_limit(0);
 
