@@ -1,5 +1,9 @@
 # Dumpling changelog
 
+## 0.2.2 (2014-02-11)
+
+- **[FIXED]** Fixed version number in `dumpling` executable
+
 ## 0.2.1 (2014-02-11)
 
 - **[MAINTENANCE]** General repo maintenance

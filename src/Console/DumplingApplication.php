@@ -23,7 +23,7 @@ class DumplingApplication extends Application
     /**
      * The main Dumpling version number.
      */
-    const VERSION = '0.2.0';
+    const VERSION = '0.2.2';
 
     /**
      * Construct a new Dumpling command line application.
